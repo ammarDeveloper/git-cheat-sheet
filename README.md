@@ -125,3 +125,17 @@ git checkout -- <file>              # Discard changes in working directory
 git restore <file>                  # Discard changes (modern syntax)
 git clean -fd                       # Remove untracked files and directories
 ```
+
+## How to revert the changes back to certain commit with out modifying the commit history
+```bash
+# 1. Reset your working directory to the desired commit state
+git reset --hard 67875fc9a99afbef94998075cbf66bec826fba28
+
+# 2. Reset back to HEAD but keep the changes staged
+git reset --soft HEAD@{1}
+
+# 3. Create a commit with a descriptive message
+git commit -m "revert: Manually revert changes to commit 67875fc9
+```
+
+|> Note: It modifies the CHANGELOG.md file. Its better to create a new branch and copy paste the changes from the reverted branch 
